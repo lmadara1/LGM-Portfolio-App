@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">LGM Project 0</string>
+    <string name="action_settings">Settings</string>
+    <string name="UI_Title">Udacity Projects</string>
+    <string name="UI_Proj1Title">Popular Movies</string>
+    <string name="UI_Proj2Title">Stock Hawk</string>
+    <string name="UI_Proj3Title">Build It Better</string>
+    <string name="UI_Proj4Title">Make Your App Material</string>
+    <string name="UI_Proj5Title">Go Ubiquitous</string>
+    <string name="UI_Proj6Title">Capstone</string>
+    <string name="UItoastMessage1">This button will launch my Popular Movies app!</string>
+    <string name="UItoastMessage2">This button will launch my Stock Hawk app!</string>
+    <string name="UItoastMessage3">This button will launch my Build It Better app!</string>
+    <string name="UItoastMessage4">This button will launch my Make Your App Material app!</string>
+    <string name="UItoastMessage5">This button will launch my Go Ubiquitous app!</string>
+    <string name="UItoastMessage6">This button will launch my Capstone app!</string>
+</resources>
