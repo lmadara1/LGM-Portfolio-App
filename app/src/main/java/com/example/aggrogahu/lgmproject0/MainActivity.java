@@ -1,5 +1,6 @@
 package com.example.aggrogahu.lgmproject0;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
@@ -20,16 +21,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //finding and storing reference to buttons as views
-        view1 = (View)findViewById(R.id.button);
-        view2 = (View)findViewById(R.id.button2);
-        view3 = (View)findViewById(R.id.button3);
-        view4 = (View)findViewById(R.id.button4);
-        view5 = (View)findViewById(R.id.button5);
-        view6 = (View)findViewById(R.id.button6);
+        view1 = findViewById(R.id.button);
+        view2 = findViewById(R.id.button2);
+        view3 = findViewById(R.id.button3);
+        view4 = findViewById(R.id.button4);
+        view5 = findViewById(R.id.button5);
+        view6 = findViewById(R.id.button6);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +68,14 @@ public class MainActivity extends AppCompatActivity {
         //change toast message according to which button is calling sendMessage
         String toastMessage;
         if(view==view1){
-            toastMessage = getString(R.string.UItoastMessage1);
+//            toastMessage = getString(R.string.UItoastMessage1);
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.aggrogahu.popularmovies");
+            if (intent != null){
+                startActivity(intent);
+                return;
+            }else {
+                return;
+            }
         }
         else if(view==view2){
             toastMessage = getString(R.string.UItoastMessage2);
