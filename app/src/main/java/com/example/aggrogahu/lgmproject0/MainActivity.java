@@ -1,6 +1,7 @@
 package com.example.aggrogahu.lgmproject0;
 
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
@@ -13,24 +14,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.aggrogahu.lgmproject0.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
 
-    private View view1,view2, view3, view4, view5, view6;
+    ActivityMainBinding mainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+        mainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //finding and storing reference to buttons as views
-        view1 = findViewById(R.id.button);
-        view2 = findViewById(R.id.button2);
-        view3 = findViewById(R.id.button3);
-        view4 = findViewById(R.id.button4);
-        view5 = findViewById(R.id.button5);
-        view6 = findViewById(R.id.button6);
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view){
         //change toast message according to which button is calling sendMessage
         String toastMessage;
-        if(view==view1){
+        if(view==mainBinding.button){
 //            toastMessage = getString(R.string.UItoastMessage1);
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.example.aggrogahu.popularmovies");
             if (intent != null){
@@ -77,24 +74,27 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
         }
-        else if(view==view2){
+        else if(view==mainBinding.button2){
             toastMessage = getString(R.string.UItoastMessage2);
         }
-        else if(view==view3){
+        else if(view==mainBinding.button3){
             toastMessage = getString(R.string.UItoastMessage3);
         }
-        else if(view==view4){
+        else if(view==mainBinding.button4){
             toastMessage = getString(R.string.UItoastMessage4);
         }
-        else if(view==view5){
+        else if(view==mainBinding.button5){
             toastMessage = getString(R.string.UItoastMessage5);
         }
-        else if(view==view6){
+        else if(view==mainBinding.button6){
             toastMessage = getString(R.string.UItoastMessage6);
         }
         else{
             toastMessage = "something happened";
         }
-        Toast.makeText(getApplicationContext(),toastMessage,Toast.LENGTH_SHORT).show();
+
+        if(toastMessage != null) {
+            Toast.makeText(getApplicationContext(), toastMessage, Toast.LENGTH_SHORT).show();
+        }
     }
 }
